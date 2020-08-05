@@ -1,13 +1,18 @@
-import { block } from 'bem-cn'
-import React from 'react'
+import React, { useMemo } from 'react'
+import { Table } from 'antd'
+import { useStoreSelector } from 'hooks'
+import normalizeTableData from 'pages/utils/normalizeTableData'
+import { columns } from '../lib/columns'
 import './styles.scss'
 
-const dc = block('pages-deleted-cities')
+const DeletedCities = () => {
+  const deleted = useStoreSelector<ICity[]>('cities.deleted')
+  const data = useMemo(() => {
+    return normalizeTableData(deleted) 
+  }, [deleted])
 
-const DeletedCities = () => (
-  <div className={dc()}>
-    Deleted Cities
-  </div>
-)
+
+  return <Table columns={columns} dataSource={data} />
+}
 
 export default DeletedCities

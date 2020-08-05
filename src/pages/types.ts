@@ -2,5 +2,6 @@ export interface ITableData {
   key: string,
   name: string,
   temperature: string,
-  status: 'active' | 'deleted'
+  status: 'active' | 'deleted',
+  id: number
 }
