@@ -1,0 +1,19 @@
+@import 'stylesheets/_variables';
+
+.button {
+  padding: 0;
+  background: transparent;
+  border: 1px solid $borderColor;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+
+  &:focus,
+  &:active {
+    border-color: darken($borderColor, 10);
+  }
+
+  &:disabled {
+    cursor: initial;
+  }
+}

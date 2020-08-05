@@ -1,0 +1,14 @@
+@import 'stylesheets/_variables';
+
+.text-input {
+  border: 1px solid $borderColor;
+  border-radius: 3px;
+  padding: 12px;
+  line-height: 1.2rem;
+  width: 100%;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}

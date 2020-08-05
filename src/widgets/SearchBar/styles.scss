@@ -1,0 +1,16 @@
+.search-bar {
+  max-width: 50%;
+  display: flex;
+
+  &__input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: none;
+  }
+
+  &__button {
+    padding: 0 20px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
