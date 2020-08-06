@@ -11,4 +11,12 @@
   &:active {
     outline: none;
   }
+
+  &__error {
+    min-height: 16px;
+    font-size: 14px;
+    color: $errorColor;
+    margin-bottom: 6px;
+    line-height: 16px;
+  }
 }

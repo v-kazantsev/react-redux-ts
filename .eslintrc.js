@@ -37,6 +37,7 @@ module.exports = {
     "arrow-body-style": "off",
     "@typescript-eslint/dot-notation": "off",
     "import/prefer-default-export": "off",
-    "no-useless-computed-key": "off"
+    "no-useless-computed-key": "off",
+    "react/jsx-indent": "off"
   },
 };

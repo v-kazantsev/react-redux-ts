@@ -5,11 +5,12 @@ import {
   DISABLE_CITY,
   MOVE_UP,
   MOVE_DOWN,
+  UPDATE_CITY,
   IAddCityAction,
   IToggleCityAction,
   IMoveCityAction,
 } from './actions'
-import { recalculatePositions } from './utils'
+import { changeCity, recalculatePositions } from './utils'
 
 export interface ICitiesStore {
   all: ICity[],
@@ -61,7 +62,7 @@ export function reducer(state: ICitiesStore = initialState,
       if (cityToEnable === -1) { return state }
       return {
         ...state,
-        all: all.map((city) => (city.id === payload ? ({ ...city, status: 'active' }) : city)),
+        all: all.map((city) => city.id === payload ? ({ ...city, status: 'active' }) : city),
         active: [...active, { ...all[cityToEnable], status: 'active', position: active.length }],
         deleted: recalculatePositions(deleted, payload),
       }
@@ -71,6 +72,14 @@ export function reducer(state: ICitiesStore = initialState,
         ...state,
         [payload.tab]: payload.group,
       }
+    case UPDATE_CITY:
+      return {
+        ...state,
+        all: changeCity(payload, all),
+        active: changeCity(payload, active),
+        deleted: changeCity(payload, deleted),
+      }
+
     default: return state
   }
 }

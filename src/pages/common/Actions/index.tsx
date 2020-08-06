@@ -18,11 +18,18 @@ const Actions = ({ id, status, city, ...props }: IProps) => {
   const dispatch = useDispatch()
   const [visible, setVisible] = useState(false)
 
-  const handleOpen = useCallback(() => setVisible(true), [])
+  const handleOpen = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
+    setVisible(true)
+  }, [])
 
-  const handleClose = useCallback(() => setVisible(false), [])
+  const handleClose = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
+    setVisible(false)
+  }, [])
 
-  const handleDelete = useCallback(() => {
+  const handleDelete = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
     dispatch(disableCity(id))
     setVisible(false)
   }, [id, dispatch])

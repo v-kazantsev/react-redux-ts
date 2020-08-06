@@ -5,6 +5,7 @@ export const DISABLE_CITY = 'DISABLE_CITY'
 export const ENABLE_CITY = 'ENABLE_CITY'
 export const MOVE_UP = 'MOVE_UP'
 export const MOVE_DOWN = 'MOVE_DOWN'
+export const UPDATE_CITY = 'UPDATE_CITY'
 
 export interface IAddCityAction extends Action {
   type: string,
@@ -48,5 +49,10 @@ export const moveUp = (payload: IMoveCityPayload) => ({
 
 export const moveDown = (payload: IMoveCityPayload) => ({
   type: MOVE_DOWN,
+  payload,
+})
+
+export const updateCity = (payload: ICity) => ({
+  type: UPDATE_CITY,
   payload,
 })

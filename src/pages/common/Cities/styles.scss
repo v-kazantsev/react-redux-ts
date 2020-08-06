@@ -1,0 +1,15 @@
+@import 'stylesheets/_variables';
+
+.cities-table {
+
+  &__row {
+    cursor: pointer;
+  }
+
+  &__name,
+  &__temperature {
+    &_disabled {
+      color: $gray;
+    }
+  }
+}

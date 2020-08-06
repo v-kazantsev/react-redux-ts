@@ -13,7 +13,8 @@ interface IProps {
 const MoveDownButton = ({ id, group, tab }: IProps) => {
   const dispatch = useDispatch()
 
-  const handleClick = useCallback(() => {
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
     const cities = swapCitiesDown(group, id)
     dispatch(moveDown({ group: cities, tab }))
   }, [dispatch, group, id, tab])

@@ -10,7 +10,8 @@ interface IProps {
 const RestoreButton = ({ id }: IProps) => {
   const dispatch = useDispatch()
 
-  const handleClick = useCallback(() => {
+  const handleClick = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation()
     dispatch(enableCity(id))
   }, [id, dispatch])
 
