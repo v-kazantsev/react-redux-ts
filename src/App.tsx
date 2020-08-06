@@ -4,6 +4,7 @@ import { Affix, Layout } from 'antd'
 import { Container } from 'components'
 import { ActiveCities, AllCities, DeletedCities } from 'pages'
 import AppHeader from 'widgets/AppHeader'
+import AppContent from 'widgets/AppContent'
 import Store from 'store'
 
 function App() {
@@ -16,9 +17,11 @@ function App() {
               <AppHeader />
             </Affix>
             <Switch>
-              <Route exact path='/' component={AllCities} />
-              <Route exact path='/active' component={ActiveCities} />
-              <Route exact path='/deleted' component={DeletedCities} />
+              <AppContent>
+                <Route exact path='/' component={AllCities} />
+                <Route exact path='/active' component={ActiveCities} />
+                <Route exact path='/deleted' component={DeletedCities} />
+              </AppContent>
               <Route render={() => <div>404 Not Found</div>} />
             </Switch>
           </Layout>
