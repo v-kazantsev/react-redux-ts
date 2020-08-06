@@ -8,7 +8,7 @@ const { Content, Header, Footer } = AntdLayout
 
 const Layout: React.FC = ({ children }) => (
   <AntdLayout className={l()}>
-    <Header></Header>
+    <Header />
     <Content>
       {children}
     </Content>

@@ -11,9 +11,11 @@ interface IProps {
 
 const b = block('button')
 
-const Button: React.FC<IProps> = ({ type = 'button', className = '', children, disabled = false, ...props }) => (
+const Button: React.FC<IProps> = ({
+  type = 'button', className = '', children, disabled = false, ...props
+}) => (
   <button
-    className={b({disabled}).mix(className)}
+    className={b({ disabled }).mix(className)}
     type={type}
     {...props}
   >

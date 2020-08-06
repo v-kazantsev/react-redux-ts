@@ -9,7 +9,7 @@ const { Item } = Menu
 const mi = block('app-header-menu-items')
 
 const MenuItems = () => {
-  const [current, setCurrent ] = useState('all')
+  const [current, setCurrent] = useState('all')
   const handleClick = useCallback((e) => {
     setCurrent(e.key)
   }, [])

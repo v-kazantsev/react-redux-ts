@@ -16,9 +16,10 @@ const ToggleButton = ({ id, status }: IProps) => {
   }, [])
 
   return (
-  <Button onClick={() => handleClick(status, id)}>
-    {status === 'active' ? 'Удалить' : 'Восстановить'}
-  </Button>)
+    <Button onClick={() => handleClick(status, id)}>
+      {status === 'active' ? 'Удалить' : 'Восстановить'}
+    </Button>
+  )
 }
 
 export default ToggleButton

@@ -4,7 +4,7 @@ export default async function castError(res: any): Promise<any> {
 
   if (res.status >= 500) {
     throw new Error(
-      'Что-то пошло не так. Попробуйте позже'
+      'Что-то пошло не так. Попробуйте позже',
     )
   }
 }

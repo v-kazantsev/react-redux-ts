@@ -7,10 +7,7 @@ import './styles.scss'
 
 const ActiveCities = () => {
   const active = useStoreSelector<ICity[]>('cities.active')
-  const data = useMemo(() => {
-    return normalizeTableData(active) 
-  }, [active])
-
+  const data = useMemo(() => normalizeTableData(active), [active])
 
   return <Table columns={columns} dataSource={data} />
 }

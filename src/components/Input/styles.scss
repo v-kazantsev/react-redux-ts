@@ -1,0 +1,11 @@
+@import 'stylesheets/_variables';
+
+.custom-input {
+  width: 100%;
+  border: 1px solid $borderColor;
+  padding: 16px;
+
+  &:focus {
+    outline: none;
+  }
+}

@@ -25,6 +25,7 @@ module.exports = {
     "react/prop-types": "off",
     "react/jsx-props-no-spreading": "off",
     "max-len": ["error", { "code": 120, "ignoreComments": true }],
-    "react/no-array-index-key": "off"
+    "react/no-array-index-key": "off",
+    "consistent-return": "off",
   },
 };

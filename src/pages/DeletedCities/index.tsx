@@ -7,10 +7,7 @@ import './styles.scss'
 
 const DeletedCities = () => {
   const deleted = useStoreSelector<ICity[]>('cities.deleted')
-  const data = useMemo(() => {
-    return normalizeTableData(deleted) 
-  }, [deleted])
-
+  const data = useMemo(() => normalizeTableData(deleted), [deleted])
 
   return <Table columns={columns} dataSource={data} />
 }

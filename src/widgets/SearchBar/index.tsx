@@ -1,53 +1,61 @@
 import { block } from 'bem-cn'
 import React, { useCallback, useState } from 'react'
-import { Form } from 'antd'
 import { useDispatch } from 'react-redux'
-import { Button, TextInput } from 'components'
+import { Button, Input } from 'components'
 import fetchCityWeather from 'api/fetchCityWeather'
 import { addCity } from 'store/cities/actions'
 import './styles.scss'
 
 const sb = block('search-bar')
-const { Item } = Form
 
 const SearchBar = () => {
   const dispatch = useDispatch()
+  const [submitting, setSubmitting] = useState(false)
   const [value, setValue] = useState('')
+  const [error, setError] = useState('')
 
-  const handleInput = useCallback((event: React.ChangeEvent<HTMLInputElement>) =>
-    { setValue(event.target.value) }, [])
-
-  const onFinish = ({ search }: any) => {
-    fetchCityWeather(search)
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault()
+    if (!value) { return setError('Поле не может быть пустым') }
+    setSubmitting(true)
+    return fetchCityWeather(value)
       .then((res) => dispatch(addCity(res)))
-      .then(() => setValue(''))
-      .catch((error) => console.error(error))
-  }
+      .catch(setError)
+      .finally(() => {
+        setSubmitting(false)
+        setValue('')
+      })
+  }, [value])
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo)
-  };
+  const handleChange = useCallback((e) => {
+    if (error) { setError('') }
+    setValue(e.target.value)
+  }, [error])
+
+  const onKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      return handleSubmit(e)
+    }
+  }, [value])
+
   return (
     <div className={sb()}>
-      <Form
-        name='city_name'
-        onFinish={onFinish}
-        onFinishFailed={onFinishFailed}
-      >
-        <Item
-          name='search'
-          rules={[{ required: true, message: 'Поле не может быть пустым' }]}
-        >
-          <TextInput
+      <form onSubmit={handleSubmit}>
+        <div className={sb('form')}>
+          <Input
             className={sb('input')}
             name='search'
             value={value}
-            onChange={handleInput}
+            onChange={handleChange}
             placeholder='Введите название города'
+            onKeyDown={onKeyDown}
           />
-        </Item>
-        <Button className={sb('button')} type='submit'>Искать</Button>
-      </Form>
+          <Button className={sb('button')} type='submit' disabled={submitting}>
+            Искать
+          </Button>
+        </div>
+        {!!error && <div className={sb('error')}>{error}</div> }
+      </form>
     </div>
   )
 }

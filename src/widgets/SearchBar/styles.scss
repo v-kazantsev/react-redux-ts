@@ -1,6 +1,9 @@
 .search-bar {
   max-width: 50%;
-  display: flex;
+
+  &__form {
+    display: flex;
+  }
 
   &__input {
     border-top-right-radius: 0;

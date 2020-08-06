@@ -6,7 +6,6 @@ interface IStore {
   cities: ICitiesStore
 }
 
-const useStoreSelector = <T>(path: string): T =>
-  useSelector((store: IStore) => get(store, path))
+const useStoreSelector = <T>(path: string): T => useSelector((store: IStore) => get(store, path))
 
 export default useStoreSelector

@@ -10,9 +10,7 @@ const ac = block('pages-all-cities')
 
 const AllCities = () => {
   const all = useStoreSelector<ICity[]>('cities.all')
-  const data = useMemo(() => {
-    return normalizeTableData(all) 
-  }, [all])
+  const data = useMemo(() => normalizeTableData(all), [all])
 
   console.log(data)
 
