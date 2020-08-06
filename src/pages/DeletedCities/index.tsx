@@ -10,7 +10,7 @@ const DeletedCities = () => {
     return sortBy(deleted, 'position')
   }, [deleted])
 
-  return <Cities group={group} />
+  return <Cities group={group} tab='deleted' />
 }
 
 export default DeletedCities

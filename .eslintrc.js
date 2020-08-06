@@ -28,7 +28,15 @@ module.exports = {
     "react/no-array-index-key": "off",
     "consistent-return": "off",
     "react/button-has-type": "off",
-    "@typescript-eslint/no-unused-vars": "off"
+    "@typescript-eslint/no-unused-vars": "off",
     "object-curly-newline": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "no-confusing-arrow": "off",
+    "no-case-declarations": "off",
+    "no-param-reassign": "off",
+    "arrow-body-style": "off",
+    "@typescript-eslint/dot-notation": "off",
+    "import/prefer-default-export": "off",
+    "no-useless-computed-key": "off"
   },
 };

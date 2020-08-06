@@ -9,7 +9,7 @@ import {
   IToggleCityAction,
   IMoveCityAction,
 } from './actions'
-import { recalculatePositions, swapCitiesDown, swapCitiesUp } from './utils'
+import { recalculatePositions } from './utils'
 
 export interface ICitiesStore {
   all: ICity[],
@@ -66,14 +66,10 @@ export function reducer(state: ICitiesStore = initialState,
         deleted: recalculatePositions(deleted, payload),
       }
     case MOVE_UP:
-      return {
-        ...state,
-        ...swapCitiesUp(payload.group, payload.id),
-      }
     case MOVE_DOWN:
       return {
         ...state,
-        ...swapCitiesDown(payload.group, payload.id),
+        [payload.tab]: payload.group,
       }
     default: return state
   }

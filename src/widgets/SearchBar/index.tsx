@@ -20,7 +20,7 @@ const SearchBar = () => {
     setSubmitting(true)
     return fetchCityWeather(value)
       .then((res) => dispatch(addCity(res)))
-      .catch(setError)
+      .catch((err) => typeof err === 'string' ? setError(err) : setError(err.message))
       .finally(() => {
         setSubmitting(false)
         setValue('')

@@ -11,7 +11,7 @@ const AllCities = () => {
     return sortBy(all, 'position')
   }, [all])
 
-  return <Cities group={group} />
+  return <Cities group={group} tab='all' />
 }
 
 export default AllCities

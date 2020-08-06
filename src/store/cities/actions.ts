@@ -17,8 +17,8 @@ export interface IToggleCityAction extends Action {
 }
 
 interface IMoveCityPayload {
-  group: 'all' | 'active' | 'deleted',
-  id: number
+  group: ICity[],
+  tab: 'all' | 'active' | 'deleted'
 }
 
 export interface IMoveCityAction extends Action {

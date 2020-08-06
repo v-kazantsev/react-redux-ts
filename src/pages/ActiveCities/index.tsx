@@ -10,7 +10,7 @@ const ActiveCities = () => {
     return sortBy(active, 'position')
   }, [active])
 
-  return <Cities group={group} />
+  return <Cities group={group} tab='active' />
 }
 
 export default ActiveCities

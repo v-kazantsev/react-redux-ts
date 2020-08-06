@@ -4,9 +4,10 @@ import Actions from '../Actions'
 
 interface IProps {
   group: ICity[]
+  tab: 'all' | 'active' | 'deleted'
 }
 
-const Cities = ({ group }: IProps) => (
+const Cities = ({ group, tab }: IProps) => (
   <Table>
     <TableHead>
       <HeadCell>Город</HeadCell>
@@ -18,7 +19,15 @@ const Cities = ({ group }: IProps) => (
         <TableRow key={city.id}>
           <BodyCell>{city?.name}</BodyCell>
           <BodyCell>{city?.main?.temp.toFixed(0)}&deg;C</BodyCell>
-          <BodyCell><Actions id={city?.id} status={city?.status} /></BodyCell>
+          <BodyCell>
+            <Actions
+              id={city?.id}
+              status={city?.status}
+              city={city.name}
+              group={group}
+              tab={tab}
+            />
+          </BodyCell>
         </TableRow>
       ))}
     </TableBody>
