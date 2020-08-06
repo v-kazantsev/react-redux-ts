@@ -1,15 +1,16 @@
 import React, { useMemo } from 'react'
-import { Table } from 'antd'
+import sortBy from 'lodash/sortBy'
 import { useStoreSelector } from 'hooks'
-import normalizeTableData from 'pages/utils/normalizeTableData'
-import { columns } from '../lib/columns'
+import Cities from '../common/Cities'
 import './styles.scss'
 
 const ActiveCities = () => {
   const active = useStoreSelector<ICity[]>('cities.active')
-  const data = useMemo(() => normalizeTableData(active), [active])
+  const group = useMemo(() => {
+    return sortBy(active, 'position')
+  }, [active])
 
-  return <Table columns={columns} dataSource={data} />
+  return <Cities group={group} />
 }
 
 export default ActiveCities

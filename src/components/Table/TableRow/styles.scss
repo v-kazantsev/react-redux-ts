@@ -1,0 +1,9 @@
+@import 'stylesheets/_variables';
+
+.custom-table-row {
+  border-bottom: 1px solid $lightGray;
+
+  &:hover {
+    background-color: $lightGray;
+  }
+}

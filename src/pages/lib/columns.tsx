@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Space } from 'antd'
 import { ITableData } from '../types'
-import { MoveDownButton, MoveUpButton, ToggleButton } from './components'
+import { MoveDownButton, MoveUpButton } from './components'
 
 export const columns = [
   {
@@ -29,7 +29,6 @@ export const columns = [
       <Space size='small'>
         <Button>Вверх</Button>
         <Button>Вниз</Button>
-        <ToggleButton status={record.status} id={record.id} />
       </Space>
     ),
   },

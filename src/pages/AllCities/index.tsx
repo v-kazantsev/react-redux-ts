@@ -1,24 +1,17 @@
-import { block } from 'bem-cn'
 import React, { useMemo } from 'react'
-import { Table } from 'antd'
+import sortBy from 'lodash/sortBy'
 import { useStoreSelector } from 'hooks'
-import normalizeTableData from 'pages/utils/normalizeTableData'
-import { columns } from '../lib/columns'
-import './styles.scss'
+import Cities from '../common/Cities'
 
-const ac = block('pages-all-cities')
+import './styles.scss'
 
 const AllCities = () => {
   const all = useStoreSelector<ICity[]>('cities.all')
-  const data = useMemo(() => normalizeTableData(all), [all])
+  const group = useMemo(() => {
+    return sortBy(all, 'position')
+  }, [all])
 
-  console.log(data)
-
-  return (
-    <div className={ac()}>
-      <Table columns={columns} dataSource={data} />
-    </div>
-  )
+  return <Cities group={group} />
 }
 
 export default AllCities

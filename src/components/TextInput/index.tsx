@@ -1,5 +1,5 @@
 import { block } from 'bem-cn'
-import React, { useCallback } from 'react'
+import React from 'react'
 import { useField } from 'react-final-form'
 import './styles.scss'
 
@@ -15,11 +15,6 @@ const t = block('text-input')
 
 const TextInput = ({ className = '', name, ...props }: IProps) => {
   const { input, meta: { touched, error, submitError } } = useField(name)
-  const handleKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      console.log('PRESSED ENTER')
-    }
-  }, [])
   const errorMessage = error || submitError
   return (
     <>
@@ -28,7 +23,6 @@ const TextInput = ({ className = '', name, ...props }: IProps) => {
         {...props}
         name={name}
         className={(t).mix(className)}
-        onKeyDown={handleKeyDown}
       />
       <div className={t('error')}>
         {touched && errorMessage}

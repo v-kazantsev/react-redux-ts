@@ -1,0 +1,8 @@
+@import 'stylesheets/_variables';
+
+.custom-table {
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+  background-color: $white;
+}

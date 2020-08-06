@@ -27,5 +27,8 @@ module.exports = {
     "max-len": ["error", { "code": 120, "ignoreComments": true }],
     "react/no-array-index-key": "off",
     "consistent-return": "off",
+    "react/button-has-type": "off",
+    "@typescript-eslint/no-unused-vars": "off"
+    "object-curly-newline": "off",
   },
 };

@@ -1,9 +1,8 @@
+@import 'stylesheets/_variables';
+
 .search-bar {
   max-width: 50%;
-
-  &__form {
-    display: flex;
-  }
+  display: flex;
 
   &__input {
     border-top-right-radius: 0;
@@ -15,5 +14,10 @@
     padding: 0 20px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+  }
+
+  &__error {
+    font-size: 12px;
+    color: $errorColor;
   }
 }

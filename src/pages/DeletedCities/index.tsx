@@ -1,15 +1,16 @@
 import React, { useMemo } from 'react'
-import { Table } from 'antd'
+import sortBy from 'lodash/sortBy'
 import { useStoreSelector } from 'hooks'
-import normalizeTableData from 'pages/utils/normalizeTableData'
-import { columns } from '../lib/columns'
+import Cities from '../common/Cities'
 import './styles.scss'
 
 const DeletedCities = () => {
   const deleted = useStoreSelector<ICity[]>('cities.deleted')
-  const data = useMemo(() => normalizeTableData(deleted), [deleted])
+  const group = useMemo(() => {
+    return sortBy(deleted, 'position')
+  }, [deleted])
 
-  return <Table columns={columns} dataSource={data} />
+  return <Cities group={group} />
 }
 
 export default DeletedCities

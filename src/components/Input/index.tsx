@@ -17,7 +17,7 @@ const i = block('custom-input')
 const Input = ({
   name,
   type = 'text',
-  className,
+  className = '',
   ...props
 }: IInputProps) => (
   <input
@@ -25,7 +25,7 @@ const Input = ({
     id={name}
     type={type}
     {...props}
-    className={i()}
+    className={(i).mix(className)}
   />
 )
 

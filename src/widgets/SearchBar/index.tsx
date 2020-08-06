@@ -25,7 +25,7 @@ const SearchBar = () => {
         setSubmitting(false)
         setValue('')
       })
-  }, [value])
+  }, [value, dispatch])
 
   const handleChange = useCallback((e) => {
     if (error) { setError('') }
@@ -36,27 +36,25 @@ const SearchBar = () => {
     if (e.key === 'Enter') {
       return handleSubmit(e)
     }
-  }, [value])
+  }, [handleSubmit])
 
   return (
-    <div className={sb()}>
-      <form onSubmit={handleSubmit}>
-        <div className={sb('form')}>
-          <Input
-            className={sb('input')}
-            name='search'
-            value={value}
-            onChange={handleChange}
-            placeholder='Введите название города'
-            onKeyDown={onKeyDown}
-          />
-          <Button className={sb('button')} type='submit' disabled={submitting}>
-            Искать
-          </Button>
-        </div>
-        {!!error && <div className={sb('error')}>{error}</div> }
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className={sb()}>
+        <Input
+          className={sb('input')}
+          name='search'
+          value={value}
+          onChange={handleChange}
+          placeholder='Введите название города'
+          onKeyDown={onKeyDown}
+        />
+        <Button className={sb('button')} type='submit' disabled={submitting}>
+          Искать
+        </Button>
+      </div>
+      {!!error && <div className={sb('error')}>{error}</div> }
+    </form>
   )
 }
 
