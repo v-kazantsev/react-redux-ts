@@ -1,0 +1,19 @@
+@import 'stylesheets/_variables';
+
+.app-content {
+  &__link {
+    display: inline-block;
+    width: 100%;
+    padding: 1rem;
+    background-color: $white;
+    color: $black;
+    border-right: 1px solid $gray;
+
+    &:hover {
+      color: $black;
+    }
+  }
+  &__active-link {
+    background-color: $gray;
+  }
+}

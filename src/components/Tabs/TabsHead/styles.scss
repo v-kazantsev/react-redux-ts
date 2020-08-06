@@ -1,0 +1,10 @@
+@import 'stylesheets/_variables';
+
+.custom-tabs-head {
+  flex-basis: 50%;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid $gray;
+  border-bottom: none;
+  border-right: none;
+}
